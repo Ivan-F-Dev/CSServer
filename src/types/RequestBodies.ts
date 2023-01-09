@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import {OrderEntity} from "./Entities";
 
 export type bodyForReg = {
     name: string
@@ -14,10 +15,9 @@ export type bodyForLog = {
 export type bodyWithToken = {
     token: string|jwt.JwtPayload
 }
-export type bodyWithOrder = {
-    id: string
-    buyCount: string
-    token?: string|jwt.JwtPayload
-}
+// export interface bodyWithOrder extends OrderEntity {
+//     token?: string|jwt.JwtPayload
+// }
+
 
 

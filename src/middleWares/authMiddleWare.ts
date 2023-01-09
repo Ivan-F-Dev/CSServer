@@ -4,8 +4,7 @@ import jwt, {JwtPayload} from 'jsonwebtoken'
 import {RolesEnum} from "../types/Enums";
 const config = require('../config')
 
-
-interface Payload extends JwtPayload {
+export interface Payload extends JwtPayload {
     id:number
     roles:Array<RolesEnum>
 }

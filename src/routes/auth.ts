@@ -9,6 +9,7 @@ import auth from "../middleWares/authMiddleWare"
 import {Request, Response} from "express";
 import {RequestWithBody} from "../types/Response&Request";
 import {bodyForLog, bodyForReg} from "../types/RequestBodies";
+import {UserEntity} from "../types/Entities";
 
 const generateAccessToken = (id:number,roles:string[]) => {
     const payload = {id,roles}
@@ -32,15 +33,14 @@ router.post('/login', [
 
     const {login, password} = req.body;
 
-    let allUsers = JSON.parse(await promisify.readFileAsync(path.join(__dirname, '..','db','users.json')))
-    const user = allUsers.find((el:any) => el.login === login)
+    let allUsers:Array<UserEntity> = JSON.parse(await promisify.readFileAsync(path.join(__dirname, '..','db','users.json')))
+    const user:UserEntity|undefined = allUsers.find((el:any) => el.login === login)
     if (!user) return res.status(400).json({message: "Неверный логин"})
 
     const validPas = bcrypt.compareSync(password,user.password)
     if (!validPas) return res.status(400).json({message: "Неверный пароль"})
-
     let token = generateAccessToken(user.id,user.roles)
-    return res.status(200).json({message: 'Вход выполнен успешно',token: token})
+    return res.status(200).json({message: 'Вход выполнен успешно',token: token,user})
 
 })
 
@@ -49,23 +49,25 @@ router.post('/registration',[
     check('password','Пароль должен иметь длину от 6 до 12 символов').isLength({min:6,max:12}),
     check('name','Логин должен иметь длину от 6 до 20 символов').isLength({min:2,max:15}),
     check('surname','Фамилия должна иметь длину от 1 до 20 символов').isLength({min:1,max:20}),
-    check('dateOfBirth','Дату рождения нужно указать в формате "ддммгггг"').isLength({min:8,max:8})
+    check('dateOfBirth','Дату рождения нужно указать в формате "гггг-мм-дд"').isLength({min:10,max:10})
 ],async (req: RequestWithBody<bodyForReg>, res: Response) => {
-
+    console.log('registration')
     const errors = validationResult(req)
     if (!errors.isEmpty()) return res.status(400).json({message:'Ошибка при регистрации', errors})
 
     const {login, password, name, surname, dateOfBirth} = req.body;
-    let allUsers = JSON.parse(await promisify.readFileAsync(path.join(__dirname, '..','db','users.json')))
+    let allUsers:Array<UserEntity> = JSON.parse(await promisify.readFileAsync(path.join(__dirname, '..','db','users.json')))
     const candidate = allUsers.find((el:any) => el.login === login)
 
     if (candidate) return res.status(400).json({message: "Пользователь с таким именем уже существует"})
 
-    const newUser = {
+    const newUser:UserEntity = {
         id: allUsers[allUsers.length-1].id + 1 ,
         name: name,
         surname: surname,
         dateOfBirth: dateOfBirth,
+        phoneNumber: '',
+        email: '',
         login: login,
         password: bcrypt.hashSync(password, 7),
         roles: ["USER"]
