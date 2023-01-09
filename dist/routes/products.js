@@ -15,10 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
 const promisify_1 = __importDefault(require("../utils/promisify"));
 const authMiddleWare_1 = __importDefault(require("../middleWares/authMiddleWare"));
-// type OrderItem = {
-//         id:string,
-//         buyCount:number
-// }
 const express = require('express'), router = express.Router();
 router.route('/')
     .get((req, res) => __awaiter(void 0, void 0, void 0, function* () {

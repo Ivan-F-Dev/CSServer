@@ -6,7 +6,7 @@ import {check,validationResult} from 'express-validator'
 import promisify from "../utils/promisify"
 import auth from "../middleWares/authMiddleWare"
 
-import {Request, Response} from "express";
+import {Response} from "express";
 import {RequestWithBody} from "../types/Response&Request";
 import {bodyForLog, bodyForReg} from "../types/RequestBodies";
 import {UserEntity} from "../types/Entities";

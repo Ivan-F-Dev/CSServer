@@ -1,16 +1,10 @@
 import {Request, Response} from "express";
 import path from "path";
-import jwt from 'jsonwebtoken'
 import promisify from "../utils/promisify"
 import {RequestWithBody} from "../types/Response&Request";
 import {bodyWithToken} from "../types/RequestBodies";
 import auth, {Payload} from "../middleWares/authMiddleWare";
 import {OrderEntity, OrderItem, ProductEntity, UserEntity} from "../types/Entities";
-
-// type OrderItem = {
-//         id:string,
-//         buyCount:number
-// }
 
 const express = require('express'),
     router = express.Router()
