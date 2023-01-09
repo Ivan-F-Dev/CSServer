@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Видеокамеры",
+    "img": "videoCameras",
+    "categoryName": "videoCameras",
+    "prefix": "vc"
+  },
+  {
+    "title": "Игровые консоли",
+    "img": "gameStations",
+    "categoryName": "gameStations",
+    "prefix": "gs"
+  },
+  {
+    "title": "Телевизоры",
+    "img": "tv",
+    "categoryName": "televisors",
+    "prefix": "tv"
+  },
+  {
+    "title": "Планшеты",
+    "img": "pads",
+    "categoryName": "pads",
+    "prefix": "pd"
+  },
+  {
+    "title": "Ноутбуки",
+    "img": "laptop",
+    "categoryName": "laptops",
+    "prefix": "lt"
+  },
+  {
+    "title": "Фотоаппараты",
+    "img": "photo",
+    "categoryName": "photoVideo",
+    "prefix": "pv"
+  },
+  {
+    "title": "Смартфоны",
+    "img": "smartphone",
+    "categoryName": "smartphones",
+    "prefix": "ph"
+  }
+]
