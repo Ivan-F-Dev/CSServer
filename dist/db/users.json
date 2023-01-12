@@ -11,31 +11,5 @@
     "roles": [
       "USER"
     ]
-  },
-  {
-    "id": 2,
-    "name": "qwerty",
-    "surname": "qwerty",
-    "dateOfBirth": "2023-01-13",
-    "phoneNumber": "",
-    "email": "",
-    "login": "qwerty",
-    "password": "$2a$07$cwoM5E/JU03CEuisTDeTSOzWml3zgGkk1VFDTOoulVZu5PgWGV6ru",
-    "roles": [
-      "USER"
-    ]
-  },
-  {
-    "id": 3,
-    "name": "qwerty",
-    "surname": "qwerty",
-    "dateOfBirth": "2023-01-13",
-    "phoneNumber": "",
-    "email": "",
-    "login": "qwertyq",
-    "password": "$2a$07$6mC41sRFYCQBQooD0bVeaux62709QTiHJPe1jLNbQTSmAbYZjUk3u",
-    "roles": [
-      "USER"
-    ]
   }
 ]
