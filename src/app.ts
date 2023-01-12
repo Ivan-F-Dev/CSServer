@@ -3,12 +3,13 @@ import path from "path";
 import express from 'express'
 import cors from 'cors'
 
-const app = express(), port = 3000
+const app = express(), port = process.env.PORT || 3000
 
 
 
 app.use(cors({
-    origin: 'http://localhost:3001'
+    origin: '*'
+    // origin: 'http://localhost:3001'
 }))
 app.use(express.urlencoded({extended:false}))//позволяет получать body запроса
 app.use(express.json())//позволяет получать json запроса

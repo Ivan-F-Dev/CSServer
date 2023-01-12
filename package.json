@@ -7,8 +7,7 @@
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon .\\dist\\app.js",
-    "start": "node ./dist/app.js",
-    "start_": "node .\\dist\\app.js"
+    "start": "node ./dist/app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

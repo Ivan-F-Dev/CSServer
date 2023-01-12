@@ -47,7 +47,7 @@ router.post('/login', [
 router.post('/registration',[
     check('login','Логин должен иметь длину от 6 до 20 символов').isLength({min:6,max:20}),
     check('password','Пароль должен иметь длину от 6 до 12 символов').isLength({min:6,max:12}),
-    check('name','Логин должен иметь длину от 6 до 20 символов').isLength({min:2,max:15}),
+    check('name','Логин должен иметь длину от 6 до 20 символов').isLength({min:1,max:20}),
     check('surname','Фамилия должна иметь длину от 1 до 20 символов').isLength({min:1,max:20}),
     check('dateOfBirth','Дату рождения нужно указать в формате "гггг-мм-дд"').isLength({min:10,max:10})
 ],async (req: RequestWithBody<bodyForReg>, res: Response) => {
@@ -59,7 +59,7 @@ router.post('/registration',[
     let allUsers:Array<UserEntity> = JSON.parse(await promisify.readFileAsync(path.join(__dirname, '..','db','users.json')))
     const candidate = allUsers.find((el:any) => el.login === login)
 
-    if (candidate) return res.status(400).json({message: "Пользователь с таким именем уже существует"})
+    if (candidate) return res.status(400).json({message: "Пользователь с таким логином уже существует"})
 
     const newUser:UserEntity = {
         id: allUsers[allUsers.length-1].id + 1 ,

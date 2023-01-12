@@ -50,7 +50,7 @@ router.post('/login', [
 router.post('/registration', [
     (0, express_validator_1.check)('login', 'Логин должен иметь длину от 6 до 20 символов').isLength({ min: 6, max: 20 }),
     (0, express_validator_1.check)('password', 'Пароль должен иметь длину от 6 до 12 символов').isLength({ min: 6, max: 12 }),
-    (0, express_validator_1.check)('name', 'Логин должен иметь длину от 6 до 20 символов').isLength({ min: 2, max: 15 }),
+    (0, express_validator_1.check)('name', 'Логин должен иметь длину от 6 до 20 символов').isLength({ min: 1, max: 20 }),
     (0, express_validator_1.check)('surname', 'Фамилия должна иметь длину от 1 до 20 символов').isLength({ min: 1, max: 20 }),
     (0, express_validator_1.check)('dateOfBirth', 'Дату рождения нужно указать в формате "гггг-мм-дд"').isLength({ min: 10, max: 10 })
 ], (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -62,7 +62,7 @@ router.post('/registration', [
     let allUsers = JSON.parse(yield promisify_1.default.readFileAsync(path_1.default.join(__dirname, '..', 'db', 'users.json')));
     const candidate = allUsers.find((el) => el.login === login);
     if (candidate)
-        return res.status(400).json({ message: "Пользователь с таким именем уже существует" });
+        return res.status(400).json({ message: "Пользователь с таким логином уже существует" });
     const newUser = {
         id: allUsers[allUsers.length - 1].id + 1,
         name: name,

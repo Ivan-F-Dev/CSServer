@@ -1,1 +1,41 @@
-[{"id":1,"name":"TestAcc","surname":"TestAcc","dateOfBirth":"2022-12-12","phoneNumber":"","email":"","login":"TestAcc","password":"$2a$07$icP3U4sSi9IAbUkGrZgoNugvLGLtqPIIu6wsf6/870mgyQbKUwvZm","roles":["USER"]},{"id":2,"name":"qwerty0000","surname":"qwerty0000","dateOfBirth":"2023-01-01","phoneNumber":"","email":"","login":"qwerty0000","password":"$2a$07$DhtQyl393yRi7MX4WaayN.gO6ud4fzYb4GP54uz34ByyclpVfDXV6","roles":["USER"]}]
+[
+  {
+    "id": 1,
+    "name": "TestAcc",
+    "surname": "TestAcc",
+    "dateOfBirth": "2022-12-12",
+    "phoneNumber": "",
+    "email": "",
+    "login": "TestAcc",
+    "password": "$2a$07$icP3U4sSi9IAbUkGrZgoNugvLGLtqPIIu6wsf6/870mgyQbKUwvZm",
+    "roles": [
+      "USER"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "qwerty",
+    "surname": "qwerty",
+    "dateOfBirth": "2023-01-13",
+    "phoneNumber": "",
+    "email": "",
+    "login": "qwerty",
+    "password": "$2a$07$cwoM5E/JU03CEuisTDeTSOzWml3zgGkk1VFDTOoulVZu5PgWGV6ru",
+    "roles": [
+      "USER"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "qwerty",
+    "surname": "qwerty",
+    "dateOfBirth": "2023-01-13",
+    "phoneNumber": "",
+    "email": "",
+    "login": "qwertyq",
+    "password": "$2a$07$6mC41sRFYCQBQooD0bVeaux62709QTiHJPe1jLNbQTSmAbYZjUk3u",
+    "roles": [
+      "USER"
+    ]
+  }
+]
